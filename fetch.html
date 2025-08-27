@@ -4,41 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>جلب صورة — التخزين السحابي الآمن</title>
+
+  <!-- خطوط -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/style.css" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
 </head>
 <body class="bg">
-  <main class="container">
+  <main class="container" role="main" aria-labelledby="fetchTitle">
     <header class="brand">
-      <h1>استرجاع صورة مشفّرة</h1>
-      <p class="subtitle">ادخل token وكلمة المرور لفك التشفير محلياً</p>
+      <div class="brand-left">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#111"></rect><path d="M12 7v6" stroke="#c62828" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="brand-info">
+        <h1 id="fetchTitle">استرجاع صورة مشفّرة</h1>
+        <p class="subtitle">ادخل token وكلمة المرور لفك التشفير محلياً</p>
+      </div>
     </header>
 
     <section class="card">
-      <h2>جلب وفك التشفير</h2>
-      <form id="fetchForm" class="form">
-        <label>Token (احفظه بعد الرفع)</label>
-        <input id="token" type="text" maxlength="128" placeholder="الصق الـ token هنا" required>
+      <div class="card-grid single">
+        <div class="card-body">
+          <h2 class="section-title">جلب وفك التشفير</h2>
 
-        <label>كلمة المرور</label>
-        <input id="password" type="password" minlength="8" placeholder="كلمة المرور" required>
+          <form id="fetchForm" class="form" autocomplete="off" novalidate>
+            <label class="field">
+              <span class="field-label">Token (الصق هنا)</span>
+              <input id="token" type="text" maxlength="128" placeholder="الصق الـ token هنا" required />
+            </label>
 
-        <div class="row">
-          <button id="btnFetch" type="submit" class="btn primary">جلب الصورة</button>
+            <label class="field">
+              <span class="field-label">كلمة المرور</span>
+              <div class="input-icon">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8v-2a5 5 0 0 0-10 0v2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+                <input id="password" type="password" minlength="8" placeholder="كلمة المرور" required />
+              </div>
+            </label>
+
+            <div class="row">
+              <button id="btnFetch" type="submit" class="btn primary">جلب الصورة</button>
+            </div>
+
+            <div id="status" class="status" role="status" aria-atomic="true"></div>
+          </form>
+
+          <div id="preview" class="preview hidden" aria-hidden="true">
+            <h3>معاينة</h3>
+            <img id="imgOut" alt="معاينة الصورة" />
+            <a id="downloadLink" class="btn ghost" download>تحميل الصورة</a>
+          </div>
         </div>
-
-        <div id="status" class="status"></div>
-      </form>
-
-      <div id="preview" class="preview hidden">
-        <h3>معاينة</h3>
-        <img id="imgOut" alt="معاينة الصورة" />
-        <a id="downloadLink" class="btn ghost" download>تحميل الصورة</a>
       </div>
     </section>
 
     <footer class="foot">
-      <a href="upload.html">اذهب لصفحة الرفع</a>
+      <a href="upload.html" class="link">اذهب لصفحة الرفع</a>
     </footer>
   </main>
 
