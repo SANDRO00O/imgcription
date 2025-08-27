@@ -1,0 +1,78 @@
+/* assets/style.css - تصميم Flat أحمر/أسود، خطوط منحنية */
+:root{
+  --bg:#0b0b0b;
+  --card:#0f0f10;
+  --accent:#c62828;
+  --muted:#9a9a9a;
+  --glass: rgba(255,255,255,0.03);
+  --radius:14px;
+  --maxWidth:980px;
+  --mobilePadding:18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family: "Segoe UI", Tahoma, Arial, sans-serif; color:#fff; background:linear-gradient(180deg,#050505 0%, #0b0b0b 100%);}
+
+.bg{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:36px 12px;}
+.container{width:100%; max-width:var(--maxWidth); margin:0 auto;}
+
+.brand{display:flex; flex-direction:column; align-items:center; gap:6px; margin-bottom:18px}
+.brand h1{margin:0; font-size:28px; color:#fff; letter-spacing:0.6px}
+.subtitle{margin:0; color:var(--muted); font-size:13px}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding:24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.form{display:flex; flex-direction:column; gap:12px}
+.form label{font-size:13px; color:var(--muted)}
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="file"],
+.form select,
+.form textarea{
+  background:var(--card);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.03);
+  padding:12px 14px;
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+}
+.form input[type="file"]{padding:10px}
+
+.row{display:flex; gap:12px; margin-top:6px}
+.row .btn{flex:1}
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.04);
+  font-weight:600;
+  cursor:pointer;
+  text-align:center;
+  text-decoration:none;
+}
+.btn.primary{background:linear-gradient(180deg,var(--accent), #9b1b1b); color:#fff; box-shadow:0 6px 18px rgba(198,40,40,0.12)}
+.btn.ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03)}
+
+.status{margin-top:10px; font-size:13px; color:var(--muted)}
+.preview{margin-top:16px; border-radius:10px; padding:12px; background:var(--glass); display:flex; flex-direction:column; gap:12px; align-items:center}
+.preview img{max-width:100%; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.hidden{display:none}
+
+.foot{margin-top:16px; text-align:center; color:var(--muted)}
+.foot a{color:var(--accent); text-decoration:none; font-weight:600}
+
+/* Responsive */
+@media (max-width:640px){
+  .row{flex-direction:column}
+  .brand h1{font-size:20px}
+  .card{padding:16px}
+  :root{--radius:12px}
+}

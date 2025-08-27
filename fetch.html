@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جلب صورة — التخزين السحابي الآمن</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+</head>
+<body class="bg">
+  <main class="container">
+    <header class="brand">
+      <h1>استرجاع صورة مشفّرة</h1>
+      <p class="subtitle">ادخل token وكلمة المرور لفك التشفير محلياً</p>
+    </header>
+
+    <section class="card">
+      <h2>جلب وفك التشفير</h2>
+      <form id="fetchForm" class="form">
+        <label>Token (احفظه بعد الرفع)</label>
+        <input id="token" type="text" maxlength="128" placeholder="الصق الـ token هنا" required>
+
+        <label>كلمة المرور</label>
+        <input id="password" type="password" minlength="8" placeholder="كلمة المرور" required>
+
+        <div class="row">
+          <button id="btnFetch" type="submit" class="btn primary">جلب الصورة</button>
+        </div>
+
+        <div id="status" class="status"></div>
+      </form>
+
+      <div id="preview" class="preview hidden">
+        <h3>معاينة</h3>
+        <img id="imgOut" alt="معاينة الصورة" />
+        <a id="downloadLink" class="btn ghost" download>تحميل الصورة</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <a href="upload.html">اذهب لصفحة الرفع</a>
+    </footer>
+  </main>
+
+  <script src="assets/fetch.js"></script>
+</body>
+</html>
