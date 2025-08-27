@@ -28,13 +28,14 @@
 
 /* الخطوط: Cairo للعربية، Inter للنصوص قصيرة */
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Cairo", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-
+  
 }
+
 html,
 body {
   height: 100%;
@@ -462,4 +463,9 @@ small {
   input[type="file"] {
     display: none;
   }
+}
+
+#imgOut{
+  height: auto;
+  width: 150px;
 }
